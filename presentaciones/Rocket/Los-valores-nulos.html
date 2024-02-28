@@ -47,7 +47,6 @@
                     <li><a href="#slide3">Impacto en la Integridad de los Datos</a></li>
                     <li><a href="#slide4">Razones para la Presencia de Valores Nulos</a></li>
                     <li><a href="#slide5">Cómo Manejar Valores Nulos</a></li>
-                    <li><a href="#slide6">Funciones y Operadores para Trabajar con Valores Nulos</a></li>
                     <li><a href="#slide7">Referencias</a></li>
                     <!-- Agrega más enlaces para cada diapositiva -->
                 </ul>
@@ -75,7 +74,11 @@
                     mantener la integridad de los datos, y su importancia se remonta a los primeros días de los sistemas de
                     bases de datos.</p>
             </section>
-            
+            <section id="slide4"><h2>¿En que casos se utilizan los valores nulos?</h2><br><p>Se pueden producir valores nulos al hacer referencia a campos del mensaje que no existen, al acceder a columnas de base de datos para las que no que se ha facilitado ningún dato y al utilizar la palabra clave NULL, que suministra un valor literal nulo.</p></section>
+				<section data-transition="slide" data-background="#393E46" data-background-transition="zoom"><h3>Presencia de valores nulos</h3><br><h4 align="left">--&gt;Datos faltantes:</h4><p align="left">En situaciones donde no se dispone de un valor específico para un campo en particular, se utiliza el valor nulo para indicar que no se tiene información disponible para ese campo.</p><img src="Recursos\null_DatosFaltantes.jpg" height="200" width="600"></section>
+				<section><h3>Presencia de valores nulos</h3><br><h4 align="left">--&gt;Registros incompletos:</h4><p align="left">Cuando un registro se está creando o actualizando y no todos los campos requeridos se han completado, el valor nulo puede usarse para indicar que el campo no ha sido completado.</p><img src="Recursos\null_RegistroIncompleto.png" height="200" width="600"></section>
+				<section data-transition="slide" data-background="#393E46" data-background-transition="zoom"><h3>Presencia de valores nulos</h3><br><h4 align="left">--&gt;Errores de entrada:</h4><p align="left">En casos donde se produce un error durante la entrada de datos, como un error de tipeo o una entrada incorrecta, el valor nulo puede utilizarse para indicar que el valor ingresado no es válido o que no se puede determinar el valor correcto.</p><img src="Recursos\null_ErrorEntrada.png" height="180" width="600">
+            </section>
             <section id="slide7">
                 <h2>Referencias</h2>
                 <ul>
