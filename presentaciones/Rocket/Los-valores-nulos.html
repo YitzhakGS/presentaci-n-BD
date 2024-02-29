@@ -26,19 +26,17 @@
                 <p align="left"># Jesse Isaac Guerrero Jimenez</p>
                 <p align="left"># Luis Mario Maurio Jimenez</p>
                 <p align="left"># Omar Reyes Morales</p>
-                <p align="left"># Jazmin Nuñez Fernandez</p>
-                <p align="left"># Jorge Nuñez Fernandez</p>
             </section>
 
             <section>
                 <h2>Índice</h2>
                 <ul>
                     <li><a href="#slide1">Definicion de Valores Nulos</a></li>
-                    <li><a href="#slide2">Tipos de Valores Nulos</a></li>
+                    <li><a href="#slide2">Restricciones NOT NULL</a></li>
                     <li><a href="#slide3">Impacto en la Integridad de los Datos</a></li>
                     <li><a href="#slide4">Razones para la Presencia de Valores Nulos</a></li>
                     <li><a href="#slide5">Cómo Manejar Valores Nulos</a></li>
-                    <li><a href="#slide7">Referencias</a></li>
+                    <li><a href="#slide6">Referencias</a></li>
                     <!-- Agrega más enlaces para cada diapositiva -->
                 </ul>
             </section>
@@ -65,12 +63,42 @@
                     mantener la integridad de los datos, y su importancia se remonta a los primeros días de los sistemas de
                     bases de datos.</p>
             </section>
+
+            <section id="slide2">
+                <h2>Restricciones NOT NULL</h2>
+                <p>Todos los tipos de datos incorporados proporcionados con el gestor de bases de datos dan soporte a la presencia de
+                valores nulos. Sin embargo, algunas reglas de negocio pueden dictar que siempre se debe proporcionar un valor.</p>
+                <p>(por ejemplo, cada empleado debe proporcionar información de contacto de emergencia)</p>
+            </section>
+
+            <section data-transition="slide" data-background="#393E46" data-background-transition="zoom">
+                <h4>Restricciones NOT NULL</h4>
+                <p>La restricción NOT NULL se utiliza para asegurarse de que a una columna determinada de una tabla no se le asigne nunca
+                el valor nulo. Una vez que se ha definido una restricción NOT NULL para una columna determinada, cualquier operación de
+                inserción o actualización que intente colocar un valor nulo en esa columna fallará.</p>
+            </section>
+
+            <section id="slide3">
+                <h2>Impacto en la Integridad de los Datos</h2>
+                <p>La integridad de los datos es la exactitud, integridad y confiabilidad de los datos.</p>
+            </section>
+
+            <section data-transition="slide" data-background="#393E46" data-background-transition="zoom">
+                <h3>Integridad Lógica e Integridad de la entidad</h3>
+                <ol>
+                    <li>Se trata de la racionalidad de los datos presentes en la base de datos relacional.</li>
+                    <li>Depende de la elaboración de claves primarias o valores exclusivos que clasifiquen los elementos de datos. El propósito
+                    es garantizar que los datos no se registren varias veces (es decir, que cada elemento de datos sea único) y que la tabla
+                    no tenga campos nulos.</li>
+                </ol>
+            </section>
+
             <section id="slide4"><h2>¿En que casos se utilizan los valores nulos?</h2><br><p>Se pueden producir valores nulos al hacer referencia a campos del mensaje que no existen, al acceder a columnas de base de datos para las que no que se ha facilitado ningún dato y al utilizar la palabra clave NULL, que suministra un valor literal nulo.</p></section>
 				<section data-transition="slide" data-background="#393E46" data-background-transition="zoom"><h3>Presencia de valores nulos</h3><br><h4 align="left">--&gt;Datos faltantes:</h4><p align="left">En situaciones donde no se dispone de un valor específico para un campo en particular, se utiliza el valor nulo para indicar que no se tiene información disponible para ese campo.</p><img src="Recursos\null_DatosFaltantes.jpg" height="200" width="600"></section>
 				<section><h3>Presencia de valores nulos</h3><br><h4 align="left">--&gt;Registros incompletos:</h4><p align="left">Cuando un registro se está creando o actualizando y no todos los campos requeridos se han completado, el valor nulo puede usarse para indicar que el campo no ha sido completado.</p><img src="Recursos\null_RegistroIncompleto.png" height="200" width="600"></section>
 				<section data-transition="slide" data-background="#393E46" data-background-transition="zoom"><h3>Presencia de valores nulos</h3><br><h4 align="left">--&gt;Errores de entrada:</h4><p align="left">En casos donde se produce un error durante la entrada de datos, como un error de tipeo o una entrada incorrecta, el valor nulo puede utilizarse para indicar que el valor ingresado no es válido o que no se puede determinar el valor correcto.</p><img src="Recursos\null_ErrorEntrada.png" height="180" width="600">
             </section>
-            <section> <h2>Como Manejar Valores Nulos</h2></section>
+            <section id="slide5"> <h2>Como Manejar Valores Nulos</h2></section>
 				<section data-transition="slide5" data-background="#393E46" data-background-transition="zoom"> 
                     Hay 3 maneras de manejarlos las cuales son: 
 					<h4> 
@@ -80,13 +108,13 @@
 					</h4> </section>
 
 				<section> 
-					<section> <p> <h3>1.Eliminacion de registros  </h3></p> 
+					<section> <p> <h3>1.Eliminacion de registros</h3></p> 
 						El comando de software más adecuado para ello es MySQL DELETE.
-						 Con esta función se especifica el conjunto exacto de datos que hay que eliminar. 
-						 Para ello, debes especificar los datos correspondientes y además indicar de qué tabla se van a eliminar
-					 </section>
-					 	
-					 <section> 
+						Con esta función se especifica el conjunto exacto de datos que hay que eliminar. 
+					    Para ello, debes especificar los datos correspondientes y además indicar de qué tabla se van a eliminar
+					</section>
+					
+					<section> 
 						Ejemplo, si sequiere eliminar el cliente "Scott Pilgrim", se utiliza el siguiente comando:
 						<h6> <p>
 							DELETE FROM Clientes </p>
@@ -94,11 +122,11 @@
 						</p> </h6>
 						
 						De estaforma, se elimina la linea correspondiente de la tabla "Cliente" 
-					 </section> 
+					</section> 
 
-					 <section>
+					<section>
 						<h6>Clientes </h6>
-						 <table> 
+						<table> 
 							<tr> 
 								<th>  Nombre  </th>
 								<th>  Ciudad </th>
@@ -120,7 +148,7 @@
 								<th>  los Angeles </th>
 								<th>  California </th>
 							</tr>
-						 </table>
+						</table>
 					</section>
 				</section>
 
@@ -152,39 +180,41 @@
 				</section>
 				<section> 
 					<p>Si un campo no tiene definido un valor por defecto, entonces Mysql lo determina de la siguiente manera:</p>
-					 <ol>
+					<ol>
 						<li>Si el campo soporta el valor NULL, se lo define con un DEFAULT NULL explícito.</li>
-					  <li>Si el campo se define como NOT NULL (NO soporta el valor NULL), depende de la versión de Mysql:</li>
-                      <li>Mysql <= 4.1: define el campo con un DEFAULT explícito usando el valor implícito según el tipo de dato del campo</li>
+					    <li>Si el campo se define como NOT NULL (NO soporta el valor NULL), depende de la versión de Mysql:</li>
+                        <li>Mysql <= 4.1: define el campo con un DEFAULT explícito usando el valor implícito según el tipo de dato del campo</li>
 						<li>Mysql >= 5.0.2: define el campo SIN un DEFAULT explícito y es necesario evaluar la forma en que se agregan y modifican registros </li>
 					</ol>    
 				</section>
 			</section>
 
 
-            <section id="slide7">
-                <h2>Referencias</h2>
+            <section id="slide6">
+                <h3>Referencias</h3>
                 <ul>
                     <!-- Agregar las referencias porfavor-->
                     <li>IBM documentation. (2023, June 21).
                         https://www.ibm.com/docs/es/integration-bus/10.0?topic=flows-esql-null-data-type</li>
                     <li>Valor nulo | AppMaster. (n.d.). AppMaster - Ultimate All-in No-code Platform.
                         https://appmaster.io/es/glossary/valor-nulo-es</li>
-                        <li>Tapia, N. (2017, 4 enero). Campos vacíos en MySQL Visualizar y Rellenar. 
+                    <li>Tapia, N. (2017, 4 enero). Campos vacíos en MySQL Visualizar y Rellenar. 
                             BaulPHP. https://baulphp.com/campos-vacios-en-mysql-visualizar-y-rellenar/</li>
-               
                 </ul>
             </section>
             
-            <section id="slide7">
-                <h2>Referencias</h2>
+            <section>
+                <h3>Referencias</h3>
                 <ul>
                     <li>Equipo editorial de IONOS. (2022, 24 noviembre). MySQL DELETE: para eliminar entradas de una tabla. IONOS Digital Guide. https://www.ionos.mx/digitalguide/hosting/cuestiones-tecnicas/mysql-delete/</li>
                     <li>Andrezgz. (2018, 15 mayo). Valores por defecto por tipo de dato en MySQL. Esas Cosas Que Aprendo. https://andrezgz.wordpress.com/2014/07/03/valores-por-defecto-por-tipo-de-dato-en-mysql/</li>
+                    <li>IBM documentation. (2024, February 12). https://www.ibm.com/docs/es/db2/11.5?topic=constraints-not-null</li>
                 </ul>
             </section>
 
-
+            <section>
+                <a href="../../index.html"><lu>GRACIAS POR SU ATENCIÓN</lu></a>
+            </section>
 
         </div>
     </div>
