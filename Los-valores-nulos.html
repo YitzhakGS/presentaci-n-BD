@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>VALORES NULOS</title>
+    <!-- Enlaces a los estilos CSS -->
+    <link rel="stylesheet" href="../../dist/reset.css">
+    <link rel="stylesheet" href="../../dist/reveal.css">
+    <link rel="stylesheet" href="../../dist/theme/mydesing.css">
+    <!-- Tema utilizado para resaltar la sintaxis del código -->
+    <link rel="stylesheet" href="../../plugin/highlight/monokai.css">
+</head>
+<body>
+    <!-- Contenedor principal de la presentación -->
+    <div class="reveal">
+        <!-- Contenedor de diapositivas -->
+        <div class="slides">
+            <!-- Diapositiva 1 y 2 ese es el ejemplo de como va a ir a informacion -->
+            <!-- Va ir dentro de las etiquetas section -->
+            <!-- Y la propiedad de data transition va a ir una diapositiva si y un una no  -->
+            <!-- Añade más diapositivas según sea necesario -->
+            <section data-transition="slide" data-background="#393E46" data-background-transition="zoom">
+                <h3>Valores nulos</h3><br>
+                <p align="left">Elaborado por:</p>
+                <p align="left"># Jesse Isaac Guerrero Jimenez</p>
+                <p align="left"># Luis Mario Maurio Jimenez</p>
+                <p align="left"># Omar Reyes Morales</p>
+                <p align="left"># Jazmin Nuñez Fernandez</p>
+            </section>
+
+            <section>
+                <h2>Índice</h2>
+                <ul>
+                    <li><a href="#slide1">Definicion de Valores Nulos</a></li>
+                    <li><a href="#slide2">Restricciones NOT NULL</a></li>
+                    <li><a href="#slide3">Impacto en la Integridad de los Datos</a></li>
+                    <li><a href="#slide4">Razones para la Presencia de Valores Nulos</a></li>
+                    <li><a href="#slide5">Cómo Manejar Valores Nulos</a></li>
+                    <li><a href="#slide6">Tipos de valores Nulos</a></li>
+                    <li><a href="#slide7">Nan en python</a></li>
+                    <li><a href="#slide8">Otros tipos</a></li>
+                    <li><a href="#slide9">Referencias</a></li>
+                    <!-- Agrega más enlaces para cada diapositiva -->
+                </ul>
+            </section>
+            
+            <section id="slide1" data-transition="slide" data-background="#393E46" data-background-transition="zoom">
+                <h2>Definicion de Valores Nulos</h2>
+                <p>"Un valor nulo significa que es un valor desconocido, indefinido o no inicializado."</p>
+                <p>"El valor nulo es un estado diferenciado que no es igual que ningún otro valor."</p>
+                <p>(IBM documentation)</p>
+            </section>
+            
+            <section>
+                <h4>¿Qué son los valores nulos?</h4>
+                <p>Null (nulo) es un marcador especial usado en el lenguaje de consulta estructurado (SQL) para indicar que no
+                    existe un
+                    valor dentro de una base de datos; Este fue introducido por el creador del modelo relacional de bases de datos
+                    E. F. Codd,</p>
+            </section>
+            
+            <section data-transition="slide" data-background="#393E46" data-background-transition="zoom">
+                <h4>Importancia de los valores nulos en las bases de datos.</h4>
+                <p>Los valores nulos son un concepto esencial en las bases de datos relacionales, diseñados para mejorar la
+                    coherencia y
+                    mantener la integridad de los datos, y su importancia se remonta a los primeros días de los sistemas de
+                    bases de datos.</p>
+            </section>
+
+            <section id="slide2">
+                <h2>Restricciones NOT NULL</h2>
+                <p>Todos los tipos de datos incorporados proporcionados con el gestor de bases de datos dan soporte a la presencia de
+                valores nulos. Sin embargo, algunas reglas de negocio pueden dictar que siempre se debe proporcionar un valor.</p>
+                <p>(por ejemplo, cada empleado debe proporcionar información de contacto de emergencia)</p>
+            </section>
+
+            <section data-transition="slide" data-background="#393E46" data-background-transition="zoom">
+                <h4>Restricciones NOT NULL</h4>
+                <p>La restricción NOT NULL se utiliza para asegurarse de que a una columna determinada de una tabla no se le asigne nunca
+                el valor nulo. Una vez que se ha definido una restricción NOT NULL para una columna determinada, cualquier operación de
+                inserción o actualización que intente colocar un valor nulo en esa columna fallará.</p>
+            </section>
+
+            <section id="slide3">
+                <h2>Impacto en la Integridad de los Datos</h2>
+                <p>La integridad de los datos es la exactitud, integridad y confiabilidad de los datos.</p>
+            </section>
+
+            <section data-transition="slide" data-background="#393E46" data-background-transition="zoom">
+                <h3>Integridad Lógica e Integridad de la entidad</h3>
+                <ol>
+                    <li>Se trata de la racionalidad de los datos presentes en la base de datos relacional.</li>
+                    <li>Depende de la elaboración de claves primarias o valores exclusivos que clasifiquen los elementos de datos. El propósito
+                    es garantizar que los datos no se registren varias veces (es decir, que cada elemento de datos sea único) y que la tabla
+                    no tenga campos nulos.</li>
+                </ol>
+            </section>
+
+            <section id="slide4"><h2>¿En que casos se utilizan los valores nulos?</h2><br><p>Se pueden producir valores nulos al hacer referencia a campos del mensaje que no existen, al acceder a columnas de base de datos para las que no que se ha facilitado ningún dato y al utilizar la palabra clave NULL, que suministra un valor literal nulo.</p></section>
+				<section data-transition="slide" data-background="#393E46" data-background-transition="zoom"><h3>Presencia de valores nulos</h3><br><h4 align="left">--&gt;Datos faltantes:</h4><p align="left">En situaciones donde no se dispone de un valor específico para un campo en particular, se utiliza el valor nulo para indicar que no se tiene información disponible para ese campo.</p><img src="Recursos\null_DatosFaltantes.jpg" height="200" width="600"></section>
+				<section><h3>Presencia de valores nulos</h3><br><h4 align="left">--&gt;Registros incompletos:</h4><p align="left">Cuando un registro se está creando o actualizando y no todos los campos requeridos se han completado, el valor nulo puede usarse para indicar que el campo no ha sido completado.</p><img src="Recursos\null_RegistroIncompleto.png" height="200" width="600"></section>
+				<section data-transition="slide" data-background="#393E46" data-background-transition="zoom"><h3>Presencia de valores nulos</h3><br><h4 align="left">--&gt;Errores de entrada:</h4><p align="left">En casos donde se produce un error durante la entrada de datos, como un error de tipeo o una entrada incorrecta, el valor nulo puede utilizarse para indicar que el valor ingresado no es válido o que no se puede determinar el valor correcto.</p><img src="Recursos\null_ErrorEntrada.png" height="180" width="600">
+            </section>
+            <section id="slide5"> <h2>Como Manejar Valores Nulos</h2></section>
+				<section data-transition="slide5" data-background="#393E46" data-background-transition="zoom"> 
+                    Hay 3 maneras de manejarlos las cuales son: 
+					<h4> 
+						<p>1.eliminacion de registros </p>
+						2. relleno de valores faltantes 
+						<p>3. Uso de valores predeterminados </p>
+					</h4> </section>
+
+				<section> 
+					<section> <p> <h3>1.Eliminacion de registros</h3></p> 
+						El comando de software más adecuado para ello es MySQL DELETE.
+						Con esta función se especifica el conjunto exacto de datos que hay que eliminar. 
+					    Para ello, debes especificar los datos correspondientes y además indicar de qué tabla se van a eliminar
+					</section>
+					
+					<section> 
+						Ejemplo, si sequiere eliminar el cliente "Scott Pilgrim", se utiliza el siguiente comando:
+						<h6> <p>
+							DELETE FROM Clientes </p>
+							<p> WHERE Name = "Scott Pilgrim"
+						</p> </h6>
+						
+						De estaforma, se elimina la linea correspondiente de la tabla "Cliente" 
+					</section> 
+
+					<section>
+						<h6>Clientes </h6>
+						<table> 
+							<tr> 
+								<th>  Nombre  </th>
+								<th>  Ciudad </th>
+								<th>  Pais  </th>
+							</tr>
+
+							<tr> 
+								<th>  Wallace  </th>
+								<th>  Toronto </th>
+								<th>  Canadá </th>
+							</tr>
+							<tr> 
+								<th>  Scott Pilgrim </th>
+								<th>  Toronto </th>
+								<th>  Canadá </th>
+							</tr>
+							<tr> 
+								<th>  Lucas Lee </th>
+								<th>  los Angeles </th>
+								<th>  California </th>
+							</tr>
+						</table>
+					</section>
+				</section>
+
+			<section>	
+				<section data-transition="slide5" data-background="#393E46" data-background-transition="zoom"> <p> <h3> 2. Relleno de valores faltantes </h3> </p>
+					En esta parte hay 2 comandos, uno es para VISUALIZAR y otro es para RELLENAR los espacios NULL o vacios en una sola consulta 
+				</section>
+
+				<section data-transition="slide5" data-background="#393E46" data-background-transition="zoom">
+					mysql> SELECT * FROM alumnos WHERE ciudad= '' </p>
+					con este comando solo nos va a mostrar valores vacios de la tabla "alumnos", como es el caso del campo DOS
+		
+					
+					<p><img src="data:image/jpeg;base64,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"></p>
+				</section>
+
+				<section data-transition="slide5" data-background="#393E46" data-background-transition="zoom">
+					UPDATE alumnos SET ciudad= 'madrid' WHERE ciudad IS NULL OR ciudad= '';</p>
+
+					Este comando actualiza la comuna "CIUDAD" de la tabla Alumnos, estableciendo su valor como "madrid" para aquellas filas sean NULL o vacias
+				</section>
+			</section>
+
+			<section>
+				<section> <p> <h3> 3.Uso de valores predeterminados </h3> </p>
+					El valor por defecto para un campo de una tabla se indica luego del tipo de dato mediante "DEFAULT valor", 
+					donde el valor por defecto para un campo de una tabla se indica luego del tipo de dato mediante.
+	
+				</section>
+				<section> 
+					<p>Si un campo no tiene definido un valor por defecto, entonces Mysql lo determina de la siguiente manera:</p>
+					<ol>
+						<li>Si el campo soporta el valor NULL, se lo define con un DEFAULT NULL explícito.</li>
+					    <li>Si el campo se define como NOT NULL (NO soporta el valor NULL), depende de la versión de Mysql:</li>
+                        <li>Mysql <= 4.1: define el campo con un DEFAULT explícito usando el valor implícito según el tipo de dato del campo</li>
+						<li>Mysql >= 5.0.2: define el campo SIN un DEFAULT explícito y es necesario evaluar la forma en que se agregan y modifican registros </li>
+					</ol>    
+				</section>
+			</section>
+
+            <section id="slide6">
+                <h2>Tipos de valores nulos</h2>
+                <p>NULL en SQL:  En SQL, NULL es un valor especial que se utiliza para representar la ausencia de un valor válido en una columna de una tabla. </p>
+                <p>Indica que no se ha proporcionado ningún valor para esa columna en una fila específica o que el valor es desconocido o no aplicable en ese momento.</p>
+                <p>Los valores NULL pueden aparecer en cualquier tipo de columna de una tabla,</p>
+            </section>
+
+            <section id="slide7">
+                <h2>Tipos de valores nulos</h2>
+                <p>NaN en Python: NaN (Not a Number) es un valor especial que se utiliza en Python para representar resultados indefinidos o no numéricos en operaciones matemáticas. </p>
+                <p>Por ejemplo, divisiones por cero o cálculos que resultan en valores complejos pueden producir NaN. </p>
+                <p>Es importante tener en cuenta que NaN es un valor de punto flotante y no se puede comparar directamente con otros valores utilizando operadores de igualdad (==), ya que siempre dará como resultado False.</p>
+            </section>
+
+            <section id="slide8">
+                <h2>Tipos de valores nulos</h2>
+                <p>Otros tipos de valores nulos en diferentes sistemas de bases de datos:
+                <p>algunos sistemas de bases de datos pueden proporcionar otros tipos de valores nulos o valores especiales para representar la ausencia de datos.</p>
+                <p>En Oracle, se puede usar una cadena vacía ('') en lugar de NULL en algunas situaciones.</p>
+                <p>En Microsoft SQL Server, además de NULL, también se puede utilizar el valor '' para representar una cadena nula.</p>
+            </section>
+
+            
+                </ol>
+            </section>
+
+
+            <section id="slide9">
+                <h3>Referencias</h3>
+                <ul>
+                    <!-- Agregar las referencias porfavor-->
+                    <li>IBM documentation. (2023, June 21).
+                        https://www.ibm.com/docs/es/integration-bus/10.0?topic=flows-esql-null-data-type</li>
+                    <li>Valor nulo | AppMaster. (n.d.). AppMaster - Ultimate All-in No-code Platform.
+                        https://appmaster.io/es/glossary/valor-nulo-es</li>
+                    <li>Tapia, N. (2017, 4 enero). Campos vacíos en MySQL Visualizar y Rellenar. 
+                            BaulPHP. https://baulphp.com/campos-vacios-en-mysql-visualizar-y-rellenar/</li>
+                </ul>
+            </section>
+            
+            <section>
+                <h3>Referencias</h3>
+                <ul>
+                    <li>Equipo editorial de IONOS. (2022, 24 noviembre). MySQL DELETE: para eliminar entradas de una tabla. IONOS Digital Guide. https://www.ionos.mx/digitalguide/hosting/cuestiones-tecnicas/mysql-delete/</li>
+                    <li>Andrezgz. (2018, 15 mayo). Valores por defecto por tipo de dato en MySQL. Esas Cosas Que Aprendo. https://andrezgz.wordpress.com/2014/07/03/valores-por-defecto-por-tipo-de-dato-en-mysql/</li>
+                    <li>IBM documentation. (2024, February 12). https://www.ibm.com/docs/es/db2/11.5?topic=constraints-not-null</li>
+                </ul>
+            </section>
+
+            <section>
+                <a href="../../index.html"><lu>GRACIAS POR SU ATENCIÓN</lu></a>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Scripts JavaScript -->
+    <script src="../../dist/reveal.js"></script>
+    <!-- Plugins -->
+    <script src="../../plugin/markdown/markdown.js"></script>
+    <script src="../../plugin/highlight/highlight.js"></script>
+    <!-- Inicialización de la presentación -->
+    <script>
+        // Más información sobre la inicialización y la configuración:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            // Habilita el uso de enlaces hash para la navegación
+            hash: true,
+            // Plugins utilizados en la presentación
+            plugins: [ RevealMarkdown, RevealHighlight ]
+        });
+    </script>
+</body>
+</html>
