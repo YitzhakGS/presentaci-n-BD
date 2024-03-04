@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>LGAS_PRESENTACION_DFDR</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/blood.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h3>DEFINICIÓN FORMAL DE RELACIÓN</h3>
+				<P>Equipo: 3</P>
+				<p>Integrantes:</p>
+				<p>Hidalgo Lira Almir Alier</p>
+				<p>Hernandez Hernadez Daniel</p>
+				<p>López García Axel Steven</p>
+				<p>Bustos Olivares Mara Naomi</p>
+				<p>Trejo Jimenez Yoav Zipacna</p>
+					
+			</section>
+			<section>
+				<section>
+					<h3>¿QUÉ ES UNA RELACIÓN?</h3>
+					<p>En el contexto de bases de datos, una relación se refiere
+						a la conexión lógica o asociación entre dos o más entidades.
+						Estas relaciones se utilizan para representar cómo se relacionan
+						los datos entre sí en una base de datos relacional.
+						Las relaciones se definen mediante la conexión de campos comunes en
+						diferentes tablas, lo que permite consultar y recuperar datos
+						relacionados de manera eficiente.</p>
+					<img src="https://i.ytimg.com/vi/iPVio2WSggo/maxresdefault.jpg" style="width: 45%">
+				</section>
+				<section>
+					<h3>TIPOS DE RELACIONES</h3>
+					<p>Relación Uno a Uno (1:1): Cada registro en una tabla se asocia con
+						exactamente un registro en otra tabla.</p>
+					<p>Relación Uno a Muchos (1:N): Cada registro en una tabla se asocia
+						con uno o más registros en otra tabla.</p>
+					<p>Relación Muchos a Muchos (N:M): Varios registros en una tabla se
+						asocian con varios registros en otra tabla a través de una tabla intermedia.</p>
+				</section>
+				<section>
+					<h3>EJEMPLO</h3>
+					<p>Relación entre dos entidades: "Estudiantes" y "Cursos".</p>
+					<pre>
+						<code>
++--------------+--------------+-------------+-------------+
+| ID_estudiante| Nombre       | Apellido    | Edad        |
++--------------+--------------+-------------+-------------+
+| 1            | Juan         | Pérez       | 20          |
+| 2            | María        | López       | 22          |
+| 3            | Carlos       | Martínez    | 21          |
++--------------+--------------+-------------+-------------+
+						</code>
+					</pre>
+				</section>
+				<section>
+					<pre>
+						<code>
+							Tabla: Cursos
++--------------+--------------+----------------+
+| ID_curso     | Nombre_curso | Profesor       |
++--------------+--------------+----------------+
+| 101          | Matemáticas  | Dr. Gómez      |
+| 102          | Historia     | Dra. Rodríguez |
+| 103          | Ciencias     | Prof. Ramírez  |
++--------------+--------------+----------------+
+						</code>
+					</pre>
+					<pre>
+						<code>
+							Tabla: Estudiantes_Cursos
++--------------+--------------+
+| ID_estudiante| ID_curso     |
++--------------+--------------+
+| 1            | 101          |
+| 1            | 102          |
+| 2            | 101          |
+| 3            | 103          |
+| ...          | ...          |
++--------------+--------------+
+						</code>
+					</pre>
+				</section>
+				<section>
+					La tabla "Estudiantes_Cursos" representa la relación entre los estudiantes y los cursos que están tomando.
+					Cada fila en la tabla "Estudiantes_Cursos" vincula un estudiante con un curso mediante los IDs correspondientes.
+					Por ejemplo, la primera fila indica que el estudiante con ID 1 está tomando el curso con ID 101 (Matemáticas), y así sucesivamente.
+				</section>	
+			</section>
+
+				<section>
+					<section>
+						<h3>CABECERA DE LA RELACIÓN</h3>
+						<p>Es la primera fila de una tabla que contiene los nombres de las columnas.
+						También se conoce como la primera tupla o registro de la tabla.
+						Proporciona los nombres de los atributos o campos que representan las
+						características de los datos almacenados en la tabla. Cada columna de la
+						cabecera de la relación corresponde a un atributo específico y define el
+						tipo de datos que puede contener. Esto ayuda a comprender la estructura de
+						la tabla y facilita la interpretación de los datos almacenados en ella.</p>
+					</section>
+					<section>
+						<h3>EJEMPLO</h3>
+						<p>Si tenemos una tabla llamada "Clientes" con las columnas "ID", "Nombre",
+							"Apellido" y "Correo electrónico", la cabecera de la relación sería:</p>
+							<pre>
+								<code>
+							|	ID | Nombre | Apellido | Correo_electrónico |
+								</code>
+							</pre>
+						<p>Aquí, cada nombre de columna en la cabecera de la relación identifica el
+							atributo correspondiente en la tabla de clientes.</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>CUERPO DE LA RELACIÓN</h3>
+						<p>Se refiere a las filas de una tabla que contienen los datos reales.
+						También se conoce como el conjunto de tuplas o registros de la tabla.
+						El cuerpo de la relación contiene la información específica que se almacena
+						en la base de datos. Cada fila representa una entidad única o una instancia de
+						la entidad que se está modelando. Cada columna del cuerpo de la relación corresponde
+						a un atributo de esa entidad y contiene los valores de esos atributos para
+						cada entidad individual.</p>
+					</section>
+					<section>
+						<h3>EJEMPLO</h3>
+						<p>Considera una tabla llamada "Clientes" con las siguientes filas en su cuerpo de relación:</p>
+						<pre>
+							<code>				
+                               CLIENTES                         
+		    +----+----------+----------+--------------------------+
+		    | ID | Nombre   | Apellido | Correo electrónico       |
+		    | 1  | Juan     | Pérez    | juan.perez@example.com   |
+		    | 2  | María    | López    | maria.lopez@example.com  |
+		    | 3  | Carlos   | García   | carlos.garcia@example.com|
+			  +----+----------+----------+--------------------------+
+							</code>
+						</pre>
+					</section>
+					<section>
+						<p>En este caso, cada fila representa un cliente diferente, y cada columna contiene
+							información específica sobre ese cliente. El cuerpo de la relación es donde se almacenan
+							los datos reales que se pueden consultar, modificar y manipular en la base de datos.</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>EL ESQUEMA DE LA RELACIÓN</h3>
+						<p>Es la estructura y el diseño de una tabla en particular.
+							Contiene información sobre los atributos o columnas que componen la tabla,
+							así como detalles sobre las restricciones y reglas que se aplican a esos atributos.</p>
+					</section>
+					<section>
+						<h3>ELEMENTOS</h3>
+						<p>1. Nombre de la tabla: Es el nombre que se le da a la tabla en la base de datos.</p>
+					</section>
+					<section>
+						<h3>ELEMENTOS</h3>
+						<p>2. Atributos o columnas: Son las características o campos que componen la tabla.
+							Cada atributo tiene un nombre único y un tipo de dato asociado que especifica qué
+							tipo de información puede almacenarse en él.</p>
+					</section>
+					<section>
+						<h3>ELEMENTOS</h3>
+						<p>3. Restricciones y reglas: Estas son las condiciones que se aplican a los datos en la tabla
+							para garantizar la integridad y consistencia de la base de datos. Las restricciones pueden
+							incluir restricciones de integridad referencial, restricciones de clave primaria, restricciones de
+							clave externa, reglas de validación de datos, entre otras.</p>
+					</section>
+					<section>
+						<h3>ELEMENTOS</h3>
+						<p>4. Clave primaria: Es un atributo o conjunto de atributos que identifica de forma única cada fila en la tabla.
+							No puede contener valores duplicados ni valores nulos.</p>
+						<p>5. Índices: Son estructuras que se crean en la base de datos para mejorar el rendimiento de
+							las consultas al acelerar la recuperación de datos.</p>
+					</section>
+					<section>
+						<h3>EJEMPLO</h3>
+						<p>Este esquema de relación describe la estructura de la tabla "Empleados",
+							especificando los nombres de las columnas y el tipo de datos que contienen.
+							Cada fila de la tabla representa un empleado con información específica sobre su identificación,
+							nombre, apellido, departamento y salario.</p>
+							<pre>
+								<code>
+											   Tabla: Empleados
+	+------------------------------------------------------------------------+										   
+	| ID_empleado  | Nombre      | Apellido     | Departamento     | Salario |
+	| 1            | Juan        | Pérez        | Ventas           | 30000   |
+	| 2            | María       | López        | Recursos Humanos | 35000   |
+	| 3            | Carlos      | Martínez     | IT               | 40000   |
+	+------------------------------------------------------------------------+
+								</code>
+							</pre>
+					</section>
+					<section>
+						<p>En este ejemplo, la tabla "Empleados" tiene cinco columnas:
+							- ID_empleado: identificador único para cada empleado (clave primaria)
+							- Nombre: nombre del empleado
+							- Apellido: apellido del empleado
+							- Departamento: departamento al que pertenece el empleado
+							- Salario: salario del empleado</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>ESTADO DE RELACIÓN 'R'</h3>
+						<p> Se refiere a la situación o condición actual de una tabla o relación en la base de datos.
+							Describe el conjunto de datos que actualmente están almacenados en la tabla y cualquier cambio que pueda ocurrir
+							en ella como resultado de operaciones de inserción, actualización o eliminación de datos.
+							El estado de relación puede cambiar dinámicamente a medida que se realizan operaciones de manipulación de datos en la tabla.</p>
+					</section>
+					<section>
+						<h3>EJEMPLO</h3>
+						<p>Supongamos que tenemos una tabla llamada "Empleados" que almacena información sobre los empleados de una empresa, y otra tabla llamada
+							"Proyectos" que almacena información sobre los proyectos en los que están trabajando los empleados. Además, existe una tabla de relación
+							llamada "Asignaciones" que relaciona los empleados con los proyectos en los que participan.</p>
+							<pre>
+								<code>
+									Tabla: Empleados
+		+--------------+--------------+-------------+
+		| ID_empleado  | Nombre       | Departamento|
+		+--------------+--------------+-------------+
+		| 1            | Juan         | Ventas      |
+		| 2            | María        | Marketing   |
+		| 3            | Carlos       | Finanzas    |
+		+--------------+--------------+-------------+
+								</code>
+							</pre>
+					</section>
+					<section>
+						<pre>
+							<code>
+								Tabla: Proyectos
+	+--------------+--------------+-------------+
+	| ID_proyecto  | Nombre       | Duración    |
+	+--------------+--------------+-------------+
+	| 101          | Proyecto A   | 6 meses     |
+	| 102          | Proyecto B   | 4 meses     |
+	| 103          | Proyecto C   | 8 meses     |
+	+--------------+--------------+-------------+
+							</code>
+						</pre>
+						<pre>
+							<code>
+								Tabla: Asignaciones
+	+--------------+--------------+
+	| ID_empleado  | ID_proyecto  |
+	+--------------+--------------+
+	| 1            | 101          |
+	| 2            | 101          |
+	| 2            | 102          |
+	| 3            | 103          |
+	+--------------+--------------+
+							</code>
+						</pre>
+					</section>
+					<section>
+						<p>El estado de la relación en la tabla "Asignaciones" muestra las asignaciones actuales de los empleados a los proyectos.
+							Por ejemplo, el empleado con ID 1 está asignado al Proyecto A (ID 101), el empleado con ID 2 está asignado tanto al Proyecto A (ID 101)
+							como al Proyecto B (ID 102), y así sucesivamente. Este estado de la relación puede cambiar con el tiempo a medida que se asignan o
+							desasignan empleados de proyectos.</p>
+					</section>
+				</section>
+				<section>
+					<h3>GRACIAS POR SU ATENCIÓN</h3>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
